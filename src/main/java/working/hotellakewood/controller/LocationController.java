@@ -54,7 +54,7 @@ public class LocationController {
 
         l.getHotels().forEach(hotel -> {
             hotel.setLocation(null);
-            String imageUrl = "http://localhost:9191/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
+            String imageUrl = "https://hotelbackend.up.railway.app/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
             hotel.setImageUrl(imageUrl);
             hotel.setImageData(null);
             hotel.setRooms(null);
