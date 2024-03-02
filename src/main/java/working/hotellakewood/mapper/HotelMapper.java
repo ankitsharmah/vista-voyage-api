@@ -44,7 +44,7 @@ public class HotelMapper {
         hotelDTO.setFileName(hotel.getFileName());
 
 
-        String imageUrl = "http://localhost:9191/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
+        String imageUrl = "https://railapp.up.railway.app/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
         hotelDTO.setImageUrl(imageUrl);
 
         return hotelDTO;
@@ -62,7 +62,7 @@ public class HotelMapper {
         hotelDTO.setFileName(hotel.getFileName());
 
 
-        String imageUrl = "http://localhost:9191/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
+        String imageUrl = "https://railapp.up.railway.app/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
         hotelDTO.setImageUrl(imageUrl);
 
         return hotelDTO;
