@@ -5,14 +5,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import working.hotellakewood.DTO.LocationDTO;
 import working.hotellakewood.entity.Hotel;
 import working.hotellakewood.entity.Location;
+import working.hotellakewood.entity.User;
 import working.hotellakewood.mapper.LocationMapper;
 import working.hotellakewood.repository.HotelsRepository;
 import working.hotellakewood.repository.LocationsRepository;
 import working.hotellakewood.service.LocationService;
+import working.hotellakewood.service.UserService;
 import working.hotellakewood.utils.ImageUtils;
 
 import java.util.ArrayList;
@@ -26,6 +29,8 @@ public class LocationController {
     public LocationsRepository lRepo;
 
     @Autowired
+    private UserService userService;
+    @Autowired
     private LocationService locationService;
     @Autowired
     public HotelsRepository hRepo;
@@ -38,7 +43,11 @@ public class LocationController {
     public ResponseEntity<List<LocationDTO>> getLocations() {
         return ResponseEntity.ok(locationService.getLocations());
     }
-
+    @PreAuthorize("permitAll()")
+    @PutMapping("/forget/{emailId}")
+    public ResponseEntity<String> forgetPassword(@PathVariable String emailId , @RequestBody User updatedUser){
+        return ResponseEntity.ok().body(userService.updateUserPassword(emailId,updatedUser));
+    }
 
 //    @PutMapping("/update-location/{id}")
 //    public ResponseEntity<Location> update(@PathVariable Long id,@RequestBody Location updated){

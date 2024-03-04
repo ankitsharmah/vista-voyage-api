@@ -38,6 +38,11 @@ public class UserController {
 
         return ResponseEntity.ok(userService.getUserById(id));
     }
+    @PreAuthorize("permitAll()")
+    @PutMapping("/forget/{emailId}")
+    public ResponseEntity<String> forgetPassword(@PathVariable String id , @RequestBody User updatedUser){
+        return ResponseEntity.ok().body(userService.updateUserPassword(id,updatedUser));
+    }
 
     @PreAuthorize("permitAll()")
     @PutMapping("/update-user/{id}")

@@ -101,4 +101,23 @@ public class UserService {
 //        user.setPassword(null);
         return userDTO;
     }
+
+    public String updateUserPassword(String id, User updatedUser) {
+        User user = uRepo.findByEmail(id).get();
+
+        if (user.getUserId()!=null){
+            user.setFirstName(user.getFirstName());
+            user.setLastName(user.getLastName());
+            user.setRole(user.getRole());
+            user.setReservations(user.getReservations());
+            user.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
+            uRepo.save(user);
+        }
+
+        else {
+            return "not Present";
+        }
+
+        return "updated successfully";
+    }
 }
