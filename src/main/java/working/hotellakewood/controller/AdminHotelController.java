@@ -1,5 +1,6 @@
 package working.hotellakewood.controller;
 
+import jakarta.annotation.security.PermitAll;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
