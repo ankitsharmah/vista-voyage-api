@@ -20,7 +20,7 @@ public class RoomMapper {
         roomDTO.setPrice(room.getPrice());
         roomDTO.setRoomType(room.getRoomType());
 //        roomDTO.setHotel(HotelMapper.toDTO(room.getHotel()));
-        String imageUrl = "https://hotelbackend.up.railway.app/api/v1/rooms/room/" + room.getRoomId() + "/image";
+        String imageUrl = "http://localhost:9191/api/v1/rooms/room/" + room.getRoomId() + "/image";
         roomDTO.setImageUrl(imageUrl);
         List<ReservationDTO> resDto = new ArrayList<>();
         for (Reservations reservation: room.getReservations()

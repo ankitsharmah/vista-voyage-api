@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HotelMapper {
-    public static HotelDTO toDTO(Hotel hotel){
+    public static HotelDTO  toDTO(Hotel hotel){
 
         HotelDTO hotelDTO = new HotelDTO();
 
@@ -26,7 +26,7 @@ public class HotelMapper {
             roomDTOS.add(RoomMapper.toDto(room));
         }
         hotelDTO.setRooms(roomDTOS);
-        String imageUrl = "https://hotelbackend.up.railway.app/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
+        String imageUrl = "http://localhost:9191/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
         hotelDTO.setImageUrl(imageUrl);
 
         return hotelDTO;
@@ -44,7 +44,7 @@ public class HotelMapper {
         hotelDTO.setFileName(hotel.getFileName());
 
 
-        String imageUrl = "https://hotelbackend.up.railway.app/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
+        String imageUrl = "http://localhost:9191/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
         hotelDTO.setImageUrl(imageUrl);
 
         return hotelDTO;
@@ -62,7 +62,7 @@ public class HotelMapper {
         hotelDTO.setFileName(hotel.getFileName());
 
 
-        String imageUrl = "https://hotelbackend.up.railway.app/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
+        String imageUrl = "http://localhost:9191/api/v1/hotels/hotel/" + hotel.getHotelId() + "/image";
         hotelDTO.setImageUrl(imageUrl);
 
         return hotelDTO;
